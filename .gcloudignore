@@ -1,0 +1,46 @@
+# Files/directories to NOT upload to App Engine
+# Node / Next
+node_modules/
+.next/
+coverage/
+.dist/
+out/
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# VCS
+.git/
+.gitignore
+
+# Local env and configs
+.env
+.env.*
+!.env.example
+app.example.yaml
+# keep app.yaml (private, local) included so deploy works
+
+# Supabase (not used in runtime)
+supabase/**
+# Legacy Vite pages and integrations moved out of Next build
+src/_legacy_pages/**
+src/integrations/_legacy_supabase/**
+
+# This file specifies files that are *not* uploaded to Google Cloud
+# using gcloud. It follows the same syntax as .gitignore, with the addition of
+# "#!include" directives (which insert the entries of the given .gitignore-style
+# file at that point).
+#
+# For more information, run:
+#   $ gcloud topic gcloudignore
+#
+.gcloudignore
+# If you would like to upload your .git directory, .gitignore file or files
+# from your .gitignore file, remove the corresponding line
+# below:
+.git
+.gitignore
+
+# Node.js dependencies:
+node_modules/

@@ -1,103 +1,57 @@
-import ProcessSection from '@/components/ProcessSection';
-import PricingSection from '@/components/PricingSection';
-import SampleReportSection from '@/components/SampleReportSection';
-import MarketAlertsSection from '@/components/MarketAlertsSection';
-import WhatYouGetSection from '@/components/WhatYouGetSection';
-import LogoBar from '@/components/LogoBar';
-import TechFAQSection from '@/components/TechFAQSection';
-import Image from 'next/image';
-import ContactQuickAccess from '@/components/clients/ContactQuickAccess';
-import ExitIntentPopup from '@/components/ExitIntentPopup';
-
-import MobileNav from '@/components/MobileNav';
-
-export default function HomePage() {
-
-  const navItems = [
-    { label: 'What You Get', href: '#what-you-get' },
-    { label: 'Checklist', href: '#checklist' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Deal Sourcing', href: '#market-alerts' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Sample', href: '#sample-report' },
-    { label: 'Book a Call', href: '/book' },
-  ];
-
-  return (
-    <div className="relative w-full overflow-hidden">
-      <ExitIntentPopup />
-      <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
-        <div className="container mx-auto flex items-center justify-between px-8 py-4 md:px-12 lg:px-16">
-          <a href="#" className="font-display text-xl font-bold text-foreground">Bogatell</a>
-          <div className="hidden items-center gap-6 md:flex">
-            {navItems.map((item) => (
-              <a key={item.label} href={item.href} className={`font-body text-sm transition-colors relative ${item.label === 'Book a Call' ? 'rounded-md bg-accent px-4 py-2 font-semibold text-accent-foreground hover:bg-accent/90' : 'text-muted-foreground hover:text-foreground'}`}>
-                {item.label}
-                {item.label === 'Deal Sourcing' && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-[2px] bg-[#53D9B5] px-1 py-[1px] text-[8px] font-bold leading-none text-black">
-                    NEW
-                  </span>
-                )}
-              </a>
-            ))}
+<section className="border-y border-border bg-muted/30 py-12">
+  <div className="container mx-auto px-8 md:px-12 lg:px-16">
+    <div className="mx-auto max-w-5xl">
+      <h2 className="mb-8 text-center font-display text-2xl font-bold text-foreground md:text-3xl">
+        Why choose us for your M&A due diligence?
+      </h2>
+      <div className="grid gap-6 md:grid-cols-3">
+        <div className="rounded-lg bg-background p-6 shadow-sm">
+          <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+            <svg className="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
-          <div className="flex items-center gap-4 md:hidden">
-            <a href="/book" className="rounded-md bg-accent px-4 py-2 font-body text-sm font-semibold text-accent-foreground hover:bg-accent/90">Book a Call</a>
-            <MobileNav navItems={navItems} />
+          <h3 className="mb-2 font-display text-lg font-semibold text-foreground">
+            Ex-FAANG Engineers
+          </h3>
+          <p className="font-body text-sm text-muted-foreground">
+            Led teams at Google, Meta, and Amazon. We've seen billion-dollar codebases.
+          </p>
+        </div>
+
+        <div className="rounded-lg bg-background p-6 shadow-sm">
+          <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+            <svg className="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
+          <h3 className="mb-2 font-display text-lg font-semibold text-foreground">
+            48-Hour Turnaround
+          </h3>
+          <p className="font-body text-sm text-muted-foreground">
+            We work to your deal timeline. Full report delivered in 2 days, not 2 weeks.
+          </p>
         </div>
-      </nav>
 
-      <section className="bg-background py-16 md:py-24">
-        <div className="container mx-auto px-8 md:px-12 lg:px-16">
-          <div className="flex flex-col gap-12 md:flex-row md:items-center md:gap-16">
-            <div className="shrink-0 md:order-1">
-              <Image src="/assets/hero-profile.png" alt="Expert Team" width={320} height={320} className="h-64 w-64 rounded-lg object-cover grayscale shadow-lg md:h-80 md:w-80" priority />
-            </div>
-            <div className="flex-1 md:order-2">
-              <p className="mb-2 font-body text-accent">Expert Team</p>
-              <h1 className="mb-4 font-display text-4xl font-bold leading-tight text-foreground md:text-5xl lg:text-6xl">We help you <span className="text-accent">de-risk</span> technology investments</h1>
-              <p className="mb-8 max-w-xl font-body text-lg leading-relaxed text-muted-foreground">Technical due diligence for acquirers and investors. <span className="font-bold text-foreground">Tailored to your thesis</span>. We identify the hidden liabilities in software assets so you can plan ahead, negotiate from strength or even walk away.</p>
-              <div className="flex flex-wrap items-center gap-4">
-                <a href="#checklist" className="rounded-md bg-primary px-6 py-3 font-body font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Checklist</a>
-                <a href="/book" className="rounded-md bg-accent px-6 py-3 font-body font-semibold text-accent-foreground transition-colors hover:bg-accent/90">Book a Call</a>
-              </div>
-            </div>
+        <div className="rounded-lg bg-background p-6 shadow-sm">
+          <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+            <svg className="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
           </div>
+          <h3 className="mb-2 font-display text-lg font-semibold text-foreground">
+            Actionable Insights
+          </h3>
+          <p className="font-body text-sm text-muted-foreground">
+            Not just "what's wrong" but cost estimates and timelines to fix it.
+          </p>
         </div>
-      </section>
-
-      <LogoBar
-        logos={[
-          { src: "/assets/logo-citi.png", alt: "Citi" },
-          { src: "/assets/logo-fixed.png", alt: "Fixed" },
-          { src: "/assets/logo-google.png", alt: "Google" },
-          { src: "/assets/logo-ibm.png", alt: "IBM" },
-          { src: "/assets/logo-stackdriver.png", alt: "Stackdriver" },
-          { src: "/assets/logo-magnetic.jpeg", alt: "Magnetic" },
-          { src: "/assets/logo-firebolt.png", alt: "Firebolt" },
-        ]}
-      />
-      <WhatYouGetSection />
-      <ProcessSection />
-      <PricingSection />
-      <SampleReportSection />
-      <MarketAlertsSection />
-
-{/*      <section className="bg-background py-8">
-        <div className="container mx-auto px-8 md:px-12 lg:px-16">
-          <ContactQuickAccess />
-        </div>
-      </section>*/}
-
-      <TechFAQSection />
-      <footer className="bg-background py-8">
-        <div className="container mx-auto px-8 md:px-12 lg:px-16">
-          <div className="border-t border-border pt-8">
-            <p className="font-body text-sm text-muted-foreground">Carrer de Ramon Turró, 109, Sant Martí, 08005 Barcelona, Spain</p>
-          </div>
-        </div>
-      </footer>
+      </div>
+      <div className="mt-8 text-center">
+        <a href="#pricing" className="font-body text-sm font-semibold text-accent hover:underline">
+          See Pricing →
+        </a>
+      </div>
     </div>
-  );
-}
+  </div>
+</section>
